@@ -21,5 +21,10 @@ namespace ProyectoFinalFP
         {
 
         }
+
+        private void btnEmpezar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

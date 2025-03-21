@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonitorAire));
-            pictureBox1 = new PictureBox();
             btnSalir = new Button();
             btnEmpezar = new Button();
             pictureBox2 = new PictureBox();
@@ -49,8 +48,13 @@
             picSemVerde = new PictureBox();
             pictureBox3 = new PictureBox();
             btnObtenerRecomendaciones = new Button();
-            checkedListBox1 = new CheckedListBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pictureBox1 = new PictureBox();
+            groupBox1 = new GroupBox();
+            lblPregunta = new Label();
+            rbdRes3 = new RadioButton();
+            rbdRes2 = new RadioButton();
+            rbdRes1 = new RadioButton();
+            btnSiguiente = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             gbSemaforo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picSemMorado).BeginInit();
@@ -59,17 +63,9 @@
             ((System.ComponentModel.ISupportInitialize)picSemAmarillo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picSemVerde).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(200, 200);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 12;
-            pictureBox1.TabStop = false;
             // 
             // btnSalir
             // 
@@ -111,7 +107,7 @@
             // 
             lblAqi.AutoSize = true;
             lblAqi.ForeColor = Color.WhiteSmoke;
-            lblAqi.Location = new Point(857, 192);
+            lblAqi.Location = new Point(907, 184);
             lblAqi.Name = "lblAqi";
             lblAqi.Size = new Size(59, 25);
             lblAqi.TabIndex = 14;
@@ -121,7 +117,7 @@
             // 
             lblPM10.AutoSize = true;
             lblPM10.ForeColor = Color.WhiteSmoke;
-            lblPM10.Location = new Point(857, 244);
+            lblPM10.Location = new Point(907, 236);
             lblPM10.Name = "lblPM10";
             lblPM10.Size = new Size(59, 25);
             lblPM10.TabIndex = 15;
@@ -131,7 +127,7 @@
             // 
             lblPM25.AutoSize = true;
             lblPM25.ForeColor = Color.WhiteSmoke;
-            lblPM25.Location = new Point(857, 308);
+            lblPM25.Location = new Point(907, 300);
             lblPM25.Name = "lblPM25";
             lblPM25.Size = new Size(59, 25);
             lblPM25.TabIndex = 16;
@@ -141,7 +137,7 @@
             // 
             lblCO.AutoSize = true;
             lblCO.ForeColor = Color.WhiteSmoke;
-            lblCO.Location = new Point(857, 371);
+            lblCO.Location = new Point(907, 363);
             lblCO.Name = "lblCO";
             lblCO.Size = new Size(59, 25);
             lblCO.TabIndex = 17;
@@ -151,7 +147,7 @@
             // 
             lblNO2.AutoSize = true;
             lblNO2.ForeColor = Color.WhiteSmoke;
-            lblNO2.Location = new Point(857, 447);
+            lblNO2.Location = new Point(907, 439);
             lblNO2.Name = "lblNO2";
             lblNO2.Size = new Size(59, 25);
             lblNO2.TabIndex = 18;
@@ -161,7 +157,7 @@
             // 
             lblO3.AutoSize = true;
             lblO3.ForeColor = Color.WhiteSmoke;
-            lblO3.Location = new Point(857, 511);
+            lblO3.Location = new Point(907, 503);
             lblO3.Name = "lblO3";
             lblO3.Size = new Size(59, 25);
             lblO3.TabIndex = 19;
@@ -171,7 +167,7 @@
             // 
             lblSO2.AutoSize = true;
             lblSO2.ForeColor = Color.WhiteSmoke;
-            lblSO2.Location = new Point(857, 571);
+            lblSO2.Location = new Point(907, 563);
             lblSO2.Name = "lblSO2";
             lblSO2.Size = new Size(59, 25);
             lblSO2.TabIndex = 20;
@@ -255,7 +251,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(58, 628);
+            pictureBox3.Location = new Point(43, 699);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(186, 176);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -273,18 +269,100 @@
             btnObtenerRecomendaciones.TabIndex = 24;
             btnObtenerRecomendaciones.Text = "Recomendaciones";
             btnObtenerRecomendaciones.UseVisualStyleBackColor = false;
-            btnObtenerRecomendaciones.Click += btnObtenerRecomendaciones_Click_1;
             // 
-            // checkedListBox1
+            // pictureBox1
             // 
-            checkedListBox1.BackColor = Color.FromArgb(255, 239, 92);
-            checkedListBox1.Font = new Font("Century", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "Hago ejercicio al aire libre", "Tengo asma o problemas respiratorios", "Trabajo en la calle", "Solo camino ocasionalmente al aire libre" });
-            checkedListBox1.Location = new Point(226, 244);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(615, 194);
-            checkedListBox1.TabIndex = 1;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 27);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(200, 200);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(lblPregunta);
+            groupBox1.Controls.Add(rbdRes3);
+            groupBox1.Controls.Add(rbdRes2);
+            groupBox1.Controls.Add(rbdRes1);
+            groupBox1.Controls.Add(btnSiguiente);
+            groupBox1.Location = new Point(210, 184);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(691, 422);
+            groupBox1.TabIndex = 26;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
+            // 
+            // lblPregunta
+            // 
+            lblPregunta.AutoSize = true;
+            lblPregunta.Font = new Font("Century", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPregunta.ForeColor = SystemColors.Info;
+            lblPregunta.Location = new Point(256, 16);
+            lblPregunta.Name = "lblPregunta";
+            lblPregunta.Size = new Size(101, 33);
+            lblPregunta.TabIndex = 19;
+            lblPregunta.Text = "label1";
+            // 
+            // rbdRes3
+            // 
+            rbdRes3.Appearance = Appearance.Button;
+            rbdRes3.BackColor = Color.FromArgb(255, 239, 92);
+            rbdRes3.Font = new Font("Century", 16F, FontStyle.Bold);
+            rbdRes3.ForeColor = Color.Navy;
+            rbdRes3.Location = new Point(21, 259);
+            rbdRes3.Name = "rbdRes3";
+            rbdRes3.Size = new Size(651, 72);
+            rbdRes3.TabIndex = 18;
+            rbdRes3.TabStop = true;
+            rbdRes3.Text = "???";
+            rbdRes3.TextAlign = ContentAlignment.MiddleCenter;
+            rbdRes3.UseVisualStyleBackColor = false;
+            rbdRes3.Visible = false;
+            // 
+            // rbdRes2
+            // 
+            rbdRes2.BackColor = Color.FromArgb(255, 239, 92);
+            rbdRes2.Font = new Font("Century", 16F, FontStyle.Bold);
+            rbdRes2.ForeColor = Color.Navy;
+            rbdRes2.Location = new Point(21, 168);
+            rbdRes2.Name = "rbdRes2";
+            rbdRes2.Padding = new Padding(30, 0, 0, 0);
+            rbdRes2.Size = new Size(651, 72);
+            rbdRes2.TabIndex = 17;
+            rbdRes2.TabStop = true;
+            rbdRes2.Text = "???";
+            rbdRes2.UseVisualStyleBackColor = false;
+            rbdRes2.Visible = false;
+            // 
+            // rbdRes1
+            // 
+            rbdRes1.Appearance = Appearance.Button;
+            rbdRes1.BackColor = Color.FromArgb(255, 239, 92);
+            rbdRes1.Font = new Font("Century", 16F, FontStyle.Bold);
+            rbdRes1.ForeColor = Color.Navy;
+            rbdRes1.Location = new Point(21, 73);
+            rbdRes1.Name = "rbdRes1";
+            rbdRes1.Size = new Size(651, 72);
+            rbdRes1.TabIndex = 16;
+            rbdRes1.TabStop = true;
+            rbdRes1.Text = "???";
+            rbdRes1.TextAlign = ContentAlignment.MiddleCenter;
+            rbdRes1.UseVisualStyleBackColor = false;
+            rbdRes1.Visible = false;
+            // 
+            // btnSiguiente
+            // 
+            btnSiguiente.BackColor = Color.FromArgb(255, 239, 92);
+            btnSiguiente.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSiguiente.ForeColor = Color.MidnightBlue;
+            btnSiguiente.Location = new Point(410, 343);
+            btnSiguiente.Name = "btnSiguiente";
+            btnSiguiente.Size = new Size(262, 63);
+            btnSiguiente.TabIndex = 11;
+            btnSiguiente.Text = "Siguiente";
+            btnSiguiente.UseVisualStyleBackColor = false;
             // 
             // MonitorAire
             // 
@@ -292,7 +370,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 37, 66);
             ClientSize = new Size(1695, 900);
-            Controls.Add(checkedListBox1);
             Controls.Add(btnObtenerRecomendaciones);
             Controls.Add(pictureBox3);
             Controls.Add(txtBoxRecomendaciones);
@@ -308,9 +385,9 @@
             Controls.Add(btnSalir);
             Controls.Add(btnEmpezar);
             Controls.Add(gbSemaforo);
+            Controls.Add(groupBox1);
             Name = "MonitorAire";
             Text = "MonitorAire";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             gbSemaforo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picSemMorado).EndInit();
@@ -319,12 +396,14 @@
             ((System.ComponentModel.ISupportInitialize)picSemAmarillo).EndInit();
             ((System.ComponentModel.ISupportInitialize)picSemVerde).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private PictureBox pictureBox1;
         private Button btnSalir;
         private Button btnEmpezar;
         private PictureBox pictureBox2;
@@ -345,6 +424,12 @@
         private PictureBox picSemVerde;
         private PictureBox pictureBox3;
         private Button btnObtenerRecomendaciones;
-        private CheckedListBox checkedListBox1;
+        private PictureBox pictureBox1;
+        private GroupBox groupBox1;
+        private Button btnSiguiente;
+        private RadioButton rbdRes3;
+        private RadioButton rbdRes2;
+        private RadioButton rbdRes1;
+        private Label lblPregunta;
     }
 }

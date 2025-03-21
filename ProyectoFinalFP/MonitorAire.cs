@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace ProyectoFinalFP
 {
@@ -72,7 +73,7 @@ namespace ProyectoFinalFP
             }
         }
 
-        
+
 
         private string ObtenerDescripcionAQI(int aqi)
         {
@@ -141,16 +142,62 @@ namespace ProyectoFinalFP
             }
         }
 
-        // Método para actualizar el TextBox con las recomendaciones
-        public void MostrarRecomendaciones(int aqi, TextBox txtBoxRecomendaciones)
+        // Lista para almacenar las respuestas seleccionadas por cada página
+        private List<int> respuestasUsuario; // Guarda el índice del radio seleccionado (-1 si ninguno)
+
+        // Preguntas organizadas en páginas (cada página tiene 3 opciones)
+        private List<string[]> preguntasRutina = new List<string[]>
+{
+    new string[] { "Hago ejercicio al aire libre", "Trabajo en exteriores", "Uso bicicleta o moto para transportarme" },
+    new string[] { "Tengo asma o problemas respiratorios", "Tengo niños pequeños o adultos mayores en casa", "Vivo cerca de avenidas principales" },
+    new string[] { "Paso más de 3 horas al aire libre", "Uso transporte público regularmente", "Tengo plantas en casa" }
+};
+
+        private int paginaActual = 0; // Índice de la página actual
+
+        private void MonitorAire_Load(object sender, EventArgs e)
         {
-            txtBoxRecomendaciones.Text = ObtenerRecomendacionesIMECA(aqi);
+            // Inicializar respuestas con -1 (ninguna opción seleccionada)
+            respuestasUsuario = new List<int>(new int[preguntasRutina.Count]);
+            for (int i = 0; i < respuestasUsuario.Count; i++)
+                respuestasUsuario[i] = -1;
+
+            ActualizarPreguntas();
         }
 
-
-        private async void btnObtenerRecomendaciones_Click_1(object sender, EventArgs e)
+        private void ActualizarPreguntas()
         {
-            int aqi = await ObtenerCalidadDelAire(); // 🔹 Ahora sí obtenemos el AQI real
+            // Cargar las preguntas actuales
+            lblPregunta.Text = "Pregunta " + (paginaActual + 1);
+            rbdRes1.Text = preguntasRutina[paginaActual][0];
+            rbdRes2.Text = preguntasRutina[paginaActual][1];
+            rbdRes3.Text = preguntasRutina[paginaActual][2];
+
+            // Restaurar selección previa
+            rbdRes1.Checked = respuestasUsuario[paginaActual] == 0;
+            rbdRes2.Checked = respuestasUsuario[paginaActual] == 1;
+            rbdRes3.Checked = respuestasUsuario[paginaActual] == 2;
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            // Guardar la respuesta seleccionada en la página actual
+            if (rbdRes1.Checked) respuestasUsuario[paginaActual] = 0;
+            else if (rbdRes2.Checked) respuestasUsuario[paginaActual] = 1;
+            else if (rbdRes3.Checked) respuestasUsuario[paginaActual] = 2;
+            else respuestasUsuario[paginaActual] = -1; // No seleccionó nada
+
+            // Avanzar a la siguiente página si es posible
+            if (paginaActual < preguntasRutina.Count - 1)
+            {
+                paginaActual++;
+                ActualizarPreguntas();
+            }
+        }
+
+        private async void btnObtenerRecomendaciones_Click(object sender, EventArgs e)
+        {
+            int aqi = await ObtenerCalidadDelAire(); // Obtener el AQI real
 
             if (aqi == -1)
             {
@@ -158,16 +205,16 @@ namespace ProyectoFinalFP
                 return;
             }
 
-            txtBoxRecomendaciones.Clear(); // Limpiar antes de agregar nuevas recomendaciones
-
-            // Obtener recomendaciones generales según el AQI
+            txtBoxRecomendaciones.Clear();
             string recomendacionesGenerales = ObtenerRecomendacionesIMECA(aqi);
             txtBoxRecomendaciones.Text += recomendacionesGenerales + "\r\n";
 
-            // Obtener recomendaciones personalizadas según los elementos seleccionados en CheckedListBox
-            foreach (var item in checkedListBox1.CheckedItems)
+            // Recorrer todas las respuestas y dar recomendaciones
+            for (int i = 0; i < respuestasUsuario.Count; i++)
             {
-                string opcion = item.ToString();
+                if (respuestasUsuario[i] == -1) continue; // Si no respondió, ignorar
+
+                string opcion = preguntasRutina[i][respuestasUsuario[i]]; // Obtener la opción seleccionada
 
                 if (opcion == "Hago ejercicio al aire libre" && aqi >= 3)
                     txtBoxRecomendaciones.Text += "🚴 Evita hacer ejercicio al aire libre hoy.\r\n";
@@ -175,20 +222,16 @@ namespace ProyectoFinalFP
                 if (opcion == "Tengo asma o problemas respiratorios" && aqi >= 2)
                     txtBoxRecomendaciones.Text += "😷 Usa mascarilla si necesitas salir.\r\n";
 
-                if (opcion == "Trabajo en la calle" && aqi >= 4)
+                if (opcion == "Trabajo en exteriores" && aqi >= 4)
                     txtBoxRecomendaciones.Text += "⚠️ Reduce el tiempo en exteriores o usa mascarilla con filtro.\r\n";
-
-                if (opcion == "Solo camino ocasionalmente al aire libre" && aqi >= 5)
-                    txtBoxRecomendaciones.Text += "🚶 Evita caminar largas distancias en la calle hoy.\r\n";
             }
 
-            // Si no hay ninguna recomendación personalizada
-            if (txtBoxRecomendaciones.Text == "")
+            if (txtBoxRecomendaciones.Text.Trim() == "")
             {
                 txtBoxRecomendaciones.Text = "✅ No hay restricciones significativas para tus actividades.";
             }
 
-            MostrarSemaforoAQI(aqi); // Método que actualiza el semáforo visualmente
+            MostrarSemaforoAQI(aqi);
         }
 
     }

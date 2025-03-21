@@ -33,16 +33,19 @@
             btnEmpezar = new Button();
             btnSalir = new Button();
             gbResultado = new GroupBox();
+            btnSiguiente = new Button();
+            txtPregunta = new TextBox();
+            gbRespuestas = new GroupBox();
+            rbdRes3 = new RadioButton();
+            rbdRes2 = new RadioButton();
+            rbdRes1 = new RadioButton();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            lblDialogo = new Label();
-            button1 = new Button();
             button2 = new Button();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
+            txtDialogo = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             gbResultado.SuspendLayout();
+            gbRespuestas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
@@ -68,6 +71,7 @@
             btnEmpezar.TabIndex = 1;
             btnEmpezar.Text = "Empezar";
             btnEmpezar.UseVisualStyleBackColor = false;
+            btnEmpezar.Click += btnEmpezar_Click;
             // 
             // btnSalir
             // 
@@ -83,21 +87,110 @@
             // 
             // gbResultado
             // 
-            gbResultado.Controls.Add(radioButton3);
-            gbResultado.Controls.Add(radioButton2);
-            gbResultado.Controls.Add(radioButton1);
-            gbResultado.Controls.Add(button1);
-            gbResultado.Location = new Point(607, 129);
+            gbResultado.Controls.Add(btnSiguiente);
+            gbResultado.Controls.Add(txtPregunta);
+            gbResultado.Controls.Add(gbRespuestas);
+            gbResultado.ForeColor = Color.WhiteSmoke;
+            gbResultado.Location = new Point(607, 128);
             gbResultado.Name = "gbResultado";
-            gbResultado.Size = new Size(1043, 566);
+            gbResultado.Size = new Size(1077, 636);
             gbResultado.TabIndex = 6;
             gbResultado.TabStop = false;
-            gbResultado.Text = "groupBox1";
+            gbResultado.Text = "Quizz";
+            // 
+            // btnSiguiente
+            // 
+            btnSiguiente.AutoEllipsis = true;
+            btnSiguiente.BackColor = Color.FromArgb(193, 255, 114);
+            btnSiguiente.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSiguiente.ForeColor = Color.Navy;
+            btnSiguiente.Location = new Point(729, 542);
+            btnSiguiente.Name = "btnSiguiente";
+            btnSiguiente.Size = new Size(280, 63);
+            btnSiguiente.TabIndex = 2;
+            btnSiguiente.Text = "Siguiente";
+            btnSiguiente.UseVisualStyleBackColor = false;
+            btnSiguiente.Visible = false;
+            // 
+            // txtPregunta
+            // 
+            txtPregunta.BackColor = Color.FromArgb(36, 37, 66);
+            txtPregunta.Font = new Font("Century", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPregunta.ForeColor = Color.WhiteSmoke;
+            txtPregunta.Location = new Point(41, 43);
+            txtPregunta.Multiline = true;
+            txtPregunta.Name = "txtPregunta";
+            txtPregunta.Size = new Size(998, 161);
+            txtPregunta.TabIndex = 9;
+            txtPregunta.TextAlign = HorizontalAlignment.Center;
+            // 
+            // gbRespuestas
+            // 
+            gbRespuestas.Controls.Add(rbdRes3);
+            gbRespuestas.Controls.Add(rbdRes2);
+            gbRespuestas.Controls.Add(rbdRes1);
+            gbRespuestas.Location = new Point(41, 231);
+            gbRespuestas.Name = "gbRespuestas";
+            gbRespuestas.Size = new Size(998, 280);
+            gbRespuestas.TabIndex = 10;
+            gbRespuestas.TabStop = false;
+            gbRespuestas.Text = "groupBox1";
+            // 
+            // rbdRes3
+            // 
+            rbdRes3.Appearance = Appearance.Button;
+            rbdRes3.BackColor = Color.FromArgb(193, 255, 114);
+            rbdRes3.Font = new Font("Century", 16F, FontStyle.Bold);
+            rbdRes3.ForeColor = Color.Navy;
+            rbdRes3.Location = new Point(667, 53);
+            rbdRes3.MaximumSize = new Size(300, 200);
+            rbdRes3.Name = "rbdRes3";
+            rbdRes3.Size = new Size(300, 180);
+            rbdRes3.TabIndex = 15;
+            rbdRes3.TabStop = true;
+            rbdRes3.Text = "???";
+            rbdRes3.TextAlign = ContentAlignment.MiddleCenter;
+            rbdRes3.UseVisualStyleBackColor = false;
+            rbdRes3.Visible = false;
+            // 
+            // rbdRes2
+            // 
+            rbdRes2.Appearance = Appearance.Button;
+            rbdRes2.BackColor = Color.FromArgb(193, 255, 114);
+            rbdRes2.Font = new Font("Century", 16F, FontStyle.Bold);
+            rbdRes2.ForeColor = Color.Navy;
+            rbdRes2.Location = new Point(345, 53);
+            rbdRes2.MaximumSize = new Size(300, 200);
+            rbdRes2.Name = "rbdRes2";
+            rbdRes2.Size = new Size(300, 180);
+            rbdRes2.TabIndex = 14;
+            rbdRes2.TabStop = true;
+            rbdRes2.Text = "???";
+            rbdRes2.TextAlign = ContentAlignment.MiddleCenter;
+            rbdRes2.UseVisualStyleBackColor = false;
+            rbdRes2.Visible = false;
+            // 
+            // rbdRes1
+            // 
+            rbdRes1.Appearance = Appearance.Button;
+            rbdRes1.BackColor = Color.FromArgb(193, 255, 114);
+            rbdRes1.Font = new Font("Century", 16F, FontStyle.Bold);
+            rbdRes1.ForeColor = Color.Navy;
+            rbdRes1.Location = new Point(26, 53);
+            rbdRes1.MaximumSize = new Size(300, 200);
+            rbdRes1.Name = "rbdRes1";
+            rbdRes1.Size = new Size(300, 180);
+            rbdRes1.TabIndex = 13;
+            rbdRes1.TabStop = true;
+            rbdRes1.Text = "???";
+            rbdRes1.TextAlign = ContentAlignment.MiddleCenter;
+            rbdRes1.UseVisualStyleBackColor = false;
+            rbdRes1.Visible = false;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(515, 28);
+            pictureBox2.Location = new Point(516, 28);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(736, 49);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -107,37 +200,12 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(12, 430);
+            pictureBox3.Location = new Point(12, 522);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(247, 242);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
-            // 
-            // lblDialogo
-            // 
-            lblDialogo.AutoSize = true;
-            lblDialogo.BorderStyle = BorderStyle.Fixed3D;
-            lblDialogo.Font = new Font("Century", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDialogo.ForeColor = Color.WhiteSmoke;
-            lblDialogo.Location = new Point(12, 290);
-            lblDialogo.Name = "lblDialogo";
-            lblDialogo.Size = new Size(483, 134);
-            lblDialogo.TabIndex = 8;
-            lblDialogo.Text = "Hola bienvenido, \r\nMi nombre es Aire Montano\r\ny hoy te enseñare la importancia \r\nde cuidar la calidad del aire";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(193, 255, 114);
-            button1.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Navy;
-            button1.Location = new Point(713, 468);
-            button1.Name = "button1";
-            button1.Size = new Size(262, 63);
-            button1.TabIndex = 2;
-            button1.Text = "Siguiente";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -151,56 +219,26 @@
             button2.Text = "Nuevo";
             button2.UseVisualStyleBackColor = false;
             // 
-            // radioButton1
+            // txtDialogo
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.BackColor = Color.FromArgb(193, 255, 114);
-            radioButton1.Cursor = Cursors.Hand;
-            radioButton1.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButton1.Location = new Point(81, 383);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(277, 46);
-            radioButton1.TabIndex = 6;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "radioButton1";
-            radioButton1.UseVisualStyleBackColor = false;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.BackColor = Color.FromArgb(193, 255, 114);
-            radioButton2.Cursor = Cursors.Hand;
-            radioButton2.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButton2.Location = new Point(427, 383);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(277, 46);
-            radioButton2.TabIndex = 7;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "radioButton2";
-            radioButton2.UseVisualStyleBackColor = false;
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.BackColor = Color.FromArgb(193, 255, 114);
-            radioButton3.Cursor = Cursors.Hand;
-            radioButton3.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            radioButton3.Location = new Point(737, 383);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(277, 46);
-            radioButton3.TabIndex = 8;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "radioButton3";
-            radioButton3.UseVisualStyleBackColor = false;
+            txtDialogo.BackColor = Color.FromArgb(36, 37, 66);
+            txtDialogo.Font = new Font("Century", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtDialogo.ForeColor = Color.WhiteSmoke;
+            txtDialogo.Location = new Point(12, 236);
+            txtDialogo.Multiline = true;
+            txtDialogo.Name = "txtDialogo";
+            txtDialogo.Size = new Size(580, 280);
+            txtDialogo.TabIndex = 10;
+            txtDialogo.Text = "Hola bienvenido, \r\nMi nombre es Aire Montano\r\ny hoy te enseñare la importancia \r\nde cuidar la calidad del aire\r\n\r\n";
             // 
             // EstudiAire
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 37, 66);
-            ClientSize = new Size(1695, 916);
+            ClientSize = new Size(1696, 917);
+            Controls.Add(txtDialogo);
             Controls.Add(button2);
-            Controls.Add(lblDialogo);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(gbResultado);
@@ -208,10 +246,11 @@
             Controls.Add(btnEmpezar);
             Controls.Add(pictureBox1);
             Name = "EstudiAire";
-            Text = " ";
+            Text = " Hola bienvenido, ";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             gbResultado.ResumeLayout(false);
             gbResultado.PerformLayout();
+            gbRespuestas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
@@ -226,11 +265,13 @@
         private GroupBox gbResultado;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private Label lblDialogo;
-        private Button button1;
+        private Button btnSiguiente;
         private Button button2;
-        private RadioButton radioButton1;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
+        private TextBox txtDialogo;
+        private TextBox txtPregunta;
+        private GroupBox gbRespuestas;
+        private RadioButton rbdRes3;
+        private RadioButton rbdRes2;
+        private RadioButton rbdRes1;
     }
 }
