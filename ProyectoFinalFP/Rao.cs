@@ -13,7 +13,15 @@ namespace ProyectoFinalFP
         {
             InitializeComponent();
             this.Text = "App Principal";
-            this.Load += (s, e) => MostrarGif(); // ✅ Llamar a MostrarGif() en Load
+            picCambiosAire.Size = new Size(600, 600);
+            picMonitorAire.Size = new Size(600, 600);
+            picEstudiAire.Size = new Size(600, 600);
+            picMonitorAire.BringToFront();
+            picCambiosAire.BringToFront();
+            picEstudiAire.BringToFront();
+            panel1.Location = new Point(200,450);
+
+            //this.Load += (s, e) => MostrarGif(); // ✅ Llamar a MostrarGif() en Load
         }
 
         private void MostrarGif()
@@ -25,8 +33,6 @@ namespace ProyectoFinalFP
                 Location = new Point(-100, -50), // 🔹 Subir la imagen 50px
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Image = Image.FromFile("gif.gif") // Cambia por tu archivo real
-
-
             };
 
             this.Controls.Add(pictureBox);
@@ -103,6 +109,9 @@ namespace ProyectoFinalFP
 
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
+        }
     }
 }

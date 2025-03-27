@@ -1,6 +1,5 @@
 C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\obj\Debug\net9.0-windows\ProyectoFinalFP.Properties.Resources.resources
 C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\obj\Debug\net9.0-windows\ProyectoFinalFP.csproj.GenerateResource.cache
-C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\obj\Debug\net9.0-windows\ProyectoFinalFP.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\obj\Debug\net9.0-windows\ProyectoFinalFP.AssemblyInfoInputs.cache
 C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\obj\Debug\net9.0-windows\ProyectoFinalFP.AssemblyInfo.cs
 C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\obj\Debug\net9.0-windows\ProyectoFinalFP.csproj.CoreCompileInputs.cache
@@ -22,3 +21,17 @@ C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalF
 C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
 C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\obj\Debug\net9.0-windows\ProyectoFinalFP.csproj.AssemblyReference.cache
 C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\obj\Debug\net9.0-windows\Proyecto.0DA124BA.Up2Date
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.Diagnostics.Eventing.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.Fonts.Fluent.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.Foundation.Logging.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.Foundation.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.UI.Composition.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.UI.Dispatching.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.UI.FluentTheme.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.UI.FluentTheme.v1.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.UI.FluentTheme.v2.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.UI.Toolkit.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.UI.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.Xaml.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\bin\Debug\net9.0-windows\Uno.dll
+C:\Users\rede9\source\repos\EdderOrtega\FPFinalUN\ProyectoFinalFP\ProyectoFinalFP\obj\Debug\net9.0-windows\ProyectoFinalFP.d-bfalse.GeneratedMSBuildEditorConfig.editorconfig
