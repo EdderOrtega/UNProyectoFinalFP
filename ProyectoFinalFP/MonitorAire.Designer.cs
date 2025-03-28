@@ -48,8 +48,6 @@
             pictureBox3 = new PictureBox();
             picLogo = new PictureBox();
             gbRutina = new GroupBox();
-            rbdRes5 = new RadioButton();
-            rbdRes4 = new RadioButton();
             lblPregunta = new Label();
             rbdRes3 = new RadioButton();
             rbdRes2 = new RadioButton();
@@ -79,9 +77,10 @@
             // 
             btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSalir.BackColor = Color.FromArgb(255, 239, 92);
+            btnSalir.Cursor = Cursors.Hand;
             btnSalir.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.MidnightBlue;
-            btnSalir.Location = new Point(-9, 184);
+            btnSalir.Location = new Point(2177, 1340);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(340, 110);
             btnSalir.TabIndex = 11;
@@ -93,9 +92,10 @@
             // 
             btnEmpezar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnEmpezar.BackColor = Color.FromArgb(255, 239, 92);
+            btnEmpezar.Cursor = Cursors.Hand;
             btnEmpezar.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEmpezar.ForeColor = Color.MidnightBlue;
-            btnEmpezar.Location = new Point(-459, 184);
+            btnEmpezar.Location = new Point(1727, 1340);
             btnEmpezar.Name = "btnEmpezar";
             btnEmpezar.Size = new Size(340, 110);
             btnEmpezar.TabIndex = 10;
@@ -262,7 +262,7 @@
             // 
             pictureBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(47, -65);
+            pictureBox3.Location = new Point(47, 1091);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(400, 400);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -281,57 +281,25 @@
             // 
             // gbRutina
             // 
-            gbRutina.Controls.Add(rbdRes5);
-            gbRutina.Controls.Add(rbdRes4);
             gbRutina.Controls.Add(lblPregunta);
             gbRutina.Controls.Add(rbdRes3);
             gbRutina.Controls.Add(rbdRes2);
             gbRutina.Controls.Add(rbdRes1);
             gbRutina.Controls.Add(btnSiguiente);
-            gbRutina.Location = new Point(202, 94);
+            gbRutina.Location = new Point(202, 115);
             gbRutina.Name = "gbRutina";
             gbRutina.Size = new Size(1333, 771);
             gbRutina.TabIndex = 26;
             gbRutina.TabStop = false;
             // 
-            // rbdRes5
-            // 
-            rbdRes5.BackColor = Color.FromArgb(255, 239, 92);
-            rbdRes5.Cursor = Cursors.Hand;
-            rbdRes5.Font = new Font("Century", 14F, FontStyle.Bold);
-            rbdRes5.ForeColor = Color.Navy;
-            rbdRes5.Location = new Point(72, 564);
-            rbdRes5.Name = "rbdRes5";
-            rbdRes5.Padding = new Padding(30, 0, 0, 0);
-            rbdRes5.Size = new Size(900, 100);
-            rbdRes5.TabIndex = 21;
-            rbdRes5.TabStop = true;
-            rbdRes5.Text = "???";
-            rbdRes5.UseVisualStyleBackColor = false;
-            // 
-            // rbdRes4
-            // 
-            rbdRes4.BackColor = Color.FromArgb(255, 239, 92);
-            rbdRes4.Cursor = Cursors.Hand;
-            rbdRes4.Font = new Font("Century", 14F, FontStyle.Bold);
-            rbdRes4.ForeColor = Color.Navy;
-            rbdRes4.Location = new Point(72, 442);
-            rbdRes4.Name = "rbdRes4";
-            rbdRes4.Padding = new Padding(30, 0, 0, 0);
-            rbdRes4.Size = new Size(900, 100);
-            rbdRes4.TabIndex = 20;
-            rbdRes4.TabStop = true;
-            rbdRes4.Text = "???";
-            rbdRes4.UseVisualStyleBackColor = false;
-            // 
             // lblPregunta
             // 
             lblPregunta.AutoSize = true;
-            lblPregunta.Font = new Font("Century", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPregunta.Font = new Font("Century", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPregunta.ForeColor = SystemColors.Info;
-            lblPregunta.Location = new Point(256, 16);
+            lblPregunta.Location = new Point(91, 148);
             lblPregunta.Name = "lblPregunta";
-            lblPregunta.Size = new Size(101, 33);
+            lblPregunta.Size = new Size(166, 57);
             lblPregunta.TabIndex = 19;
             lblPregunta.Text = "label1";
             // 
@@ -341,10 +309,10 @@
             rbdRes3.Cursor = Cursors.Hand;
             rbdRes3.Font = new Font("Century", 14F, FontStyle.Bold);
             rbdRes3.ForeColor = Color.Navy;
-            rbdRes3.Location = new Point(72, 318);
+            rbdRes3.Location = new Point(348, 520);
             rbdRes3.Name = "rbdRes3";
             rbdRes3.Padding = new Padding(30, 0, 0, 0);
-            rbdRes3.Size = new Size(900, 100);
+            rbdRes3.Size = new Size(655, 100);
             rbdRes3.TabIndex = 18;
             rbdRes3.TabStop = true;
             rbdRes3.Text = "???";
@@ -357,10 +325,10 @@
             rbdRes2.Cursor = Cursors.Hand;
             rbdRes2.Font = new Font("Century", 14F, FontStyle.Bold);
             rbdRes2.ForeColor = Color.Navy;
-            rbdRes2.Location = new Point(72, 194);
+            rbdRes2.Location = new Point(348, 396);
             rbdRes2.Name = "rbdRes2";
             rbdRes2.Padding = new Padding(30, 0, 0, 0);
-            rbdRes2.Size = new Size(900, 100);
+            rbdRes2.Size = new Size(655, 100);
             rbdRes2.TabIndex = 17;
             rbdRes2.TabStop = true;
             rbdRes2.Text = "???";
@@ -372,10 +340,10 @@
             rbdRes1.Cursor = Cursors.Hand;
             rbdRes1.Font = new Font("Century", 14F, FontStyle.Bold);
             rbdRes1.ForeColor = Color.Navy;
-            rbdRes1.Location = new Point(72, 68);
+            rbdRes1.Location = new Point(348, 270);
             rbdRes1.Name = "rbdRes1";
             rbdRes1.Padding = new Padding(30, 0, 0, 0);
-            rbdRes1.Size = new Size(900, 100);
+            rbdRes1.Size = new Size(655, 100);
             rbdRes1.TabIndex = 16;
             rbdRes1.TabStop = true;
             rbdRes1.Text = "???";
@@ -384,6 +352,7 @@
             // btnSiguiente
             // 
             btnSiguiente.BackColor = Color.FromArgb(255, 239, 92);
+            btnSiguiente.Cursor = Cursors.Hand;
             btnSiguiente.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSiguiente.ForeColor = Color.MidnightBlue;
             btnSiguiente.Location = new Point(1034, 675);
@@ -399,7 +368,7 @@
             lblRecomendacionesUsuario.AutoSize = true;
             lblRecomendacionesUsuario.BackColor = Color.FromArgb(255, 239, 92);
             lblRecomendacionesUsuario.BorderStyle = BorderStyle.Fixed3D;
-            lblRecomendacionesUsuario.Font = new Font("Century", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRecomendacionesUsuario.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblRecomendacionesUsuario.ForeColor = Color.MidnightBlue;
             lblRecomendacionesUsuario.Location = new Point(47, 508);
             lblRecomendacionesUsuario.MaximumSize = new Size(1201, 601);
@@ -444,13 +413,14 @@
             // lblDialogo
             // 
             lblDialogo.AutoSize = true;
-            lblDialogo.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDialogo.BorderStyle = BorderStyle.Fixed3D;
+            lblDialogo.Font = new Font("Century", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDialogo.ForeColor = Color.WhiteSmoke;
-            lblDialogo.Location = new Point(15, 680);
+            lblDialogo.Location = new Point(12, 538);
             lblDialogo.MaximumSize = new Size(701, 451);
-            lblDialogo.MinimumSize = new Size(400, 450);
+            lblDialogo.MinimumSize = new Size(500, 500);
             lblDialogo.Name = "lblDialogo";
-            lblDialogo.Size = new Size(400, 450);
+            lblDialogo.Size = new Size(500, 500);
             lblDialogo.TabIndex = 29;
             // 
             // picInicio
@@ -467,9 +437,10 @@
             // 
             btnRecomendacionesUsuario.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnRecomendacionesUsuario.BackColor = Color.FromArgb(255, 239, 92);
+            btnRecomendacionesUsuario.Cursor = Cursors.Hand;
             btnRecomendacionesUsuario.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRecomendacionesUsuario.ForeColor = Color.MidnightBlue;
-            btnRecomendacionesUsuario.Location = new Point(-915, 184);
+            btnRecomendacionesUsuario.Location = new Point(1271, 1340);
             btnRecomendacionesUsuario.Name = "btnRecomendacionesUsuario";
             btnRecomendacionesUsuario.Size = new Size(340, 110);
             btnRecomendacionesUsuario.TabIndex = 31;
@@ -482,7 +453,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(36, 37, 66);
-            ClientSize = new Size(378, 344);
+            ClientSize = new Size(2564, 1500);
             ControlBox = false;
             Controls.Add(lblRecomendacionesUsuario);
             Controls.Add(btnRecomendacionesUsuario);
@@ -547,8 +518,6 @@
         private Label lblDialogo;
         private PictureBox picInicio;
         private Button btnRecomendacionesUsuario;
-        private RadioButton rbdRes5;
-        private RadioButton rbdRes4;
         private Label lblRecomendacionesUsuario;
     }
 }

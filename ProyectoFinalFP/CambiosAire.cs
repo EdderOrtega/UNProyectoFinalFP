@@ -416,8 +416,10 @@ namespace ProyectoFinalFP
             rao.Show();
             this.Close();
         }
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void btnNuevo_Click(object sender, EventArgs e) 
         {
+            lblDialogo.Visible = true;
+            picInicio.Visible = true;
             // Resetear las variables
             situacionActual = 0;
             situacionesSeleccionadas.Clear();
@@ -440,7 +442,7 @@ namespace ProyectoFinalFP
             lblIMECA.Visible = false;
             picLogo.Visible = false;
             groupBox1.Visible = false;
-            picMontano.Image = Image.FromFile("montanohablando.png");
+            picMontano.Image = Image.FromFile("montanocallado.png");
             picInicio.Image = Image.FromFile("cambiosAireLogoRedondo.png"); // Cambia por la ruta de tu imagen
             picInicio.Size = new Size(900, 900);
             picInicio.Location = new Point(1200, 300); // Esto lo moverá a la posición deseada

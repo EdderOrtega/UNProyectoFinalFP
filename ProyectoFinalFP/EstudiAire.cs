@@ -238,7 +238,7 @@ namespace ProyectoFinalFP
                 lblDialogo.Font = new Font("Century", 14, FontStyle.Bold);
                 lblDialogo.Text = "¡Felicidades! 🎉 Has completado el quiz.\r\n"
                                 + "Espero que hayas aprendido mucho sobre la calidad del aire y cómo podemos mejorarlo juntos. 🌱💨\r\n\r\n"
-                                + "Pero esto no termina aquí... Ahora puedes seguir a **MonitorAire**,\r\n"
+                                + "Pero esto no termina aquí... Ahora puedes seguir a MonitorAire,\r\n"
                                 + "donde te diremos la calidad del aire en este momento 🌎 y te daremos recomendaciones personalizadas según tu rutina. 🚀\r\n"
                                 + "¡Nos vemos allá! 😉";
                 return; // Evitar que siga cargando nuevas preguntas
@@ -395,29 +395,23 @@ namespace ProyectoFinalFP
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-
         }
 
 
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
-
-          
         }
 
         private void EstudiAire_Load(object sender, EventArgs e)
         {
-
         }
 
         private void lblTeoria_Click(object sender, EventArgs e)
         {
-
         }
 
         private void picMontano_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnNuevoo_Click(object sender, EventArgs e)

@@ -117,9 +117,9 @@
             // picImgSituacion
             // 
             picImgSituacion.Image = (Image)resources.GetObject("picImgSituacion.Image");
-            picImgSituacion.Location = new Point(272, 30);
+            picImgSituacion.Location = new Point(336, 54);
             picImgSituacion.Name = "picImgSituacion";
-            picImgSituacion.Size = new Size(1227, 600);
+            picImgSituacion.Size = new Size(1058, 573);
             picImgSituacion.SizeMode = PictureBoxSizeMode.StretchImage;
             picImgSituacion.TabIndex = 15;
             picImgSituacion.TabStop = false;

@@ -65,7 +65,6 @@ namespace ProyectoFinalFP
             await ObtenerCalidadDelAire();
             picLogo.Visible = true;
             picInicio.Visible = false;
-            lblDialogo.Visible = false;
             gbDatosApi.Visible = true;
             lblAqi.Visible = true;
             lblPM10.Visible = true;
@@ -77,6 +76,8 @@ namespace ProyectoFinalFP
             gbSemaforo.Visible = true;
             lblRecomendaciones.Visible = true;
             OcultarPreguntas();
+            lblDialogo.Visible = true;
+            lblDialogo.Text = "Estamos obteniendo la información actual del clima gracias a la API de OpenWeather.\n\n Los datos que ves en pantalla provienen directamente de esa fuente confiable, que nos brinda información en tiempo real sobre el clima y la calidad del aire.";
         }
 
         private async Task<int> ObtenerCalidadDelAire()
@@ -111,7 +112,7 @@ namespace ProyectoFinalFP
                     lblSO2.Text = $"SO2: {so2} µg/m³";
                     MostrarSemaforoAQI(aqi);
                     lblRecomendaciones.Text = "Recomendaciones: \n\n" + ObtenerRecomendacionesIMECA(aqi);
-
+                   
                     return aqi; // 🔹 Devuelve el AQI obtenido
                 }
                 catch (Exception ex)
@@ -190,12 +191,13 @@ namespace ProyectoFinalFP
                                              // Preguntas organizadas en páginas (cada página tiene 5 opciones)
         private List<string[]> preguntasRutina = new List<string[]>
 {
-    new string[] { "¿Realizas ejercicio al aire libre?", "¿Practicas deportes en parques?", "¿Te gusta correr por la ciudad?", "¿Haces actividades recreativas al aire libre?", "¿Realizas caminatas frecuentes?" },
-    new string[] { "¿Tienes enfermedades respiratorias como asma?", "¿Padeces alergias respiratorias?", "¿Has tenido problemas respiratorios en el pasado?", "¿Vives con alguien que tiene asma?", "¿Tienes alguna afección pulmonar?" },
-    new string[] { "¿Pasas más de 2 horas al aire libre cada día?", "¿Pasas tiempo al aire libre aunque no haga buen tiempo?", "¿Tienes trabajos que te obligan a estar al aire libre?", "¿Realizas actividades físicas al aire libre durante el día?", "¿Te expones al sol y aire libre de forma regular?" },
-    new string[] { "¿Vives cerca de avenidas o calles muy transitadas?", "¿Vives en un área con altos niveles de contaminación?", "¿Hay mucho tráfico cerca de tu vivienda?", "¿Sientes malos olores provenientes de vehículos?", "¿Tu casa está cerca de fábricas o comercios?" },
-    new string[] { "¿Tienes plantas en casa?", "¿Usas purificadores de aire?", "¿Mantienes las ventanas abiertas regularmente?", "¿Evitas el uso de productos químicos de limpieza?", "¿Prefieres un ambiente libre de humo y contaminantes?" }
+    new string[] { "¿Realizas ejercicio al aire libre?" ,"Sí", "No", "No estoy seguro" },
+    new string[] { "¿Tienes enfermedades respiratorias como asma?", "Sí", "No", "No estoy seguro" },
+    new string[] { "¿Vives cerca de avenidas o calles muy transitadas?", "Sí", "No", "No estoy seguro" },
+    new string[] { "¿Tienes plantas en casa?", "Sí", "No", "No estoy seguro" },
+    new string[] { "¿Usas purificadores de aire?", "Sí", "No", "No estoy seguro" }
 };
+
 
         private int paginaActual = 0; // Índice de la página actual
 
@@ -212,7 +214,8 @@ namespace ProyectoFinalFP
             picInicio.Visible = false;
             picLogo.Visible = true;
             btnSiguiente.Visible = true;
-            lblDialogo.Visible = false;
+            lblDialogo.Visible = true;
+            lblDialogo.Text = "Para ofrecerte recomendaciones personalizadas sobre cómo mejorar tu salud y bienestar en función del aire que respiras, necesitamos que respondas algunas preguntas rápidas. ¡No te preocupes, es muy sencillo! Solo selecciona tus respuestas y en seguida te daré las recomendaciones.";
             // Inicializar respuestas con -1 (ninguna opción seleccionada) si es la primera vez que se presiona el botón
             if (respuestasUsuario == null)
             {
@@ -221,24 +224,24 @@ namespace ProyectoFinalFP
                     respuestasUsuario[i] = -1;
             }
 
-            // Mostrar la primera pregunta si es la primera vez
+
             if (paginaActual == 0)
             {
-                ActualizarPreguntas(); // Actualiza las preguntas en los controles
+                ActualizarPreguntas(); // Actualiza la interfaz con la primera pregunta
             }
 
-            // Guardar la respuesta seleccionada en la página actual
-            if (rbdRes1.Checked) respuestasUsuario[paginaActual] = 0;
-            else if (rbdRes2.Checked) respuestasUsuario[paginaActual] = 1;
-            else if (rbdRes3.Checked) respuestasUsuario[paginaActual] = 2;
-            else return; // Si no se seleccionó nada, no avanzar
+            lblPregunta.Text = preguntasRutina[paginaActual][0];
 
-            // Si hay más preguntas, avanzar a la siguiente
+            if (rbdRes1.Checked) respuestasUsuario[paginaActual] = 1; // Si se selecciona "Sí"
+            else if (rbdRes2.Checked) respuestasUsuario[paginaActual] = 2; // Si se selecciona "No"
+            else if (rbdRes3.Checked) respuestasUsuario[paginaActual] = 3; // Si se selecciona "No estoy seguro"
+            else return; // Si no se ha seleccionado ninguna opción, no continuar
+
             if (paginaActual < preguntasRutina.Count - 1)
             {
                 paginaActual++;
-                ActualizarPreguntas();
-                return; // Salir del método para esperar la siguiente interacción
+                ActualizarPreguntas(); // Muestra la siguiente pregunta
+                return;
             }
 
             // Si se respondieron todas las preguntas, ocultar el grupo de preguntas
@@ -259,7 +262,6 @@ namespace ProyectoFinalFP
             // Analizar respuestas del usuario y agregar recomendaciones según el AQI
             for (int i = 0; i < respuestasUsuario.Count; i++)
             {
-
                 if (respuestasUsuario[i] == -1) continue; // Ignorar preguntas sin respuesta
 
                 string opcion = preguntasRutina[i][respuestasUsuario[i]]; // Obtener la opción seleccionada
@@ -291,6 +293,8 @@ namespace ProyectoFinalFP
 
             // Reiniciar la encuesta para que el usuario pueda volver a intentarlo
             paginaActual = 0;
+            
+
         }
 
         // Método para actualizar las preguntas en los controles
@@ -299,19 +303,19 @@ namespace ProyectoFinalFP
             // Cargar las preguntas actuales
             lblPregunta.Text = "Responde lo siguiente: "; // Cambiar para mostrar la primera opción de la pregunta
 
+            lblPregunta.Text = preguntasRutina[paginaActual][0];
+
             // Actualizar las opciones de respuesta
-            rbdRes1.Text = preguntasRutina[paginaActual][0];
-            rbdRes2.Text = preguntasRutina[paginaActual][1];
-            rbdRes3.Text = preguntasRutina[paginaActual][2];
-            rbdRes4.Text = preguntasRutina[paginaActual][3];
-            rbdRes5.Text = preguntasRutina[paginaActual][4];
+            rbdRes1.Text = preguntasRutina[paginaActual][1];
+            rbdRes2.Text = preguntasRutina[paginaActual][2];
+            rbdRes3.Text = preguntasRutina[paginaActual][3];
 
             // Restaurar selección previa
-            rbdRes1.Checked = respuestasUsuario[paginaActual] == 0;
-            rbdRes2.Checked = respuestasUsuario[paginaActual] == 1;
-            rbdRes3.Checked = respuestasUsuario[paginaActual] == 2;
-            rbdRes4.Checked = respuestasUsuario[paginaActual] == 3;
-            rbdRes5.Checked = respuestasUsuario[paginaActual] == 4;
+            lblPregunta.Text = preguntasRutina[paginaActual][0];
+
+            rbdRes1.Checked = respuestasUsuario[paginaActual] == 1;
+            rbdRes2.Checked = respuestasUsuario[paginaActual] == 2;
+            rbdRes3.Checked = respuestasUsuario[paginaActual] == 3;
         }
 
         private async void btnSiguiente_Click(object sender, EventArgs e)
@@ -320,8 +324,6 @@ namespace ProyectoFinalFP
             if (rbdRes1.Checked) respuestasUsuario[paginaActual] = 0;
             else if (rbdRes2.Checked) respuestasUsuario[paginaActual] = 1;
             else if (rbdRes3.Checked) respuestasUsuario[paginaActual] = 2;
-            else if (rbdRes4.Checked) respuestasUsuario[paginaActual] = 3;
-            else if (rbdRes5.Checked) respuestasUsuario[paginaActual] = 4;
             else return; // Si no se seleccionó nada, no avanzar
 
             // Si hay más preguntas, avanzar a la siguiente
@@ -337,7 +339,7 @@ namespace ProyectoFinalFP
                 lblRecomendacionesUsuario.Visible = true;
                 lblRecomendacionesUsuario.Text = ""; // Inicializar texto para evitar concatenaciones previas
                 lblRecomendacionesUsuario.Size = new Size(1000, 600);
-                lblRecomendacionesUsuario.Location = new Point(1100, 500); // Esto lo moverá a la posición deseada
+                lblRecomendacionesUsuario.Location = new Point(980, 500); // Esto lo moverá a la posición deseada
 
                 // Obtener la calidad del aire de forma asincrónica
                 int aqi = await ObtenerCalidadDelAire();
@@ -360,17 +362,15 @@ namespace ProyectoFinalFP
 
                     // Agregar recomendaciones personalizadas basadas en las respuestas y el AQI
                     if (opcion == "Hago ejercicio al aire libre" && aqi >= 3)
-                    lblRecomendacionesUsuario.Text += "🚴 Evita hacer ejercicio al aire libre hoy.\r\n";
+                        lblRecomendacionesUsuario.Text += "🚴 Evita hacer ejercicio al aire libre hoy.\r\n";
 
                     if (opcion == "Tengo asma o problemas respiratorios" && aqi >= 2)
-                    lblRecomendacionesUsuario.Text += "😷 Usa mascarilla si necesitas salir.\r\n";
+                        lblRecomendacionesUsuario.Text += "😷 Usa mascarilla si necesitas salir.\r\n";
 
                     if (opcion == "Trabajo en exteriores" && aqi >= 4)
-                    lblRecomendacionesUsuario.Text += "⚠️ Reduce el tiempo en exteriores o usa mascarilla con filtro.\r\n";
+                        lblRecomendacionesUsuario.Text += "⚠️ Reduce el tiempo en exteriores o usa mascarilla con filtro.\r\n";
                 }
-
-                // Si no hubo ninguna recomendación específica
-                if (string.IsNullOrWhiteSpace(lblRecomendaciones.Text))
+                if (string.IsNullOrWhiteSpace(lblRecomendacionesUsuario.Text))
                 {
                     lblRecomendacionesUsuario.Visible = true;
                     lblRecomendacionesUsuario.Text = "✅ No hay restricciones significativas para tus actividades.";
@@ -378,12 +378,84 @@ namespace ProyectoFinalFP
 
                 // Mostrar el semáforo AQI
                 MostrarSemaforoAQI(aqi);
-                lblDialogo.Text = "Sigue estas recomendaciones \n basadas en tu rutina";
 
                 // Reiniciar la encuesta para que el usuario pueda volver a intentarlo
                 paginaActual = 0;
                 lblRecomendacionesUsuario.Visible = true;
+
+                // Mostrar recomendaciones personalizadas
+                MostrarRecomendaciones();
             }
+
+        }
+
+        private void MostrarRecomendaciones()
+        {
+            StringBuilder recomendaciones = new StringBuilder();
+
+            // Comprobar cada respuesta del usuario y generar una recomendación personalizada
+            for (int i = 0; i < preguntasRutina.Count; i++)
+            {
+                int respuesta = respuestasUsuario[i];
+
+                switch (i)
+                {
+                    case 0: // Pregunta 1: ¿Realizas ejercicio al aire libre?
+                        if (respuesta == 0) // Sí
+                            recomendaciones.AppendLine("¡Genial! El ejercicio al aire libre es excelente para tu salud mental y física.");
+                        else if (respuesta == 1) // No
+                            recomendaciones.AppendLine("Intenta incorporar ejercicio al aire libre. Puede mejorar tu bienestar general.");
+                        else if (respuesta == 2) // No estoy seguro
+                            recomendaciones.AppendLine("Es recomendable practicar ejercicio al aire libre regularmente. ¡Inténtalo!");
+                        break;
+
+                    case 1: // Pregunta 2: ¿Tienes enfermedades respiratorias como asma?
+                        if (respuesta == 0) // Sí
+                            recomendaciones.AppendLine("Si tienes asma, asegúrate de evitar áreas con contaminación o altos niveles de polución.");
+                        else if (respuesta == 1) // No
+                            recomendaciones.AppendLine("Es importante mantenerse libre de factores que afecten la respiración, como la contaminación.");
+                        else if (respuesta == 2) // No estoy seguro
+                            recomendaciones.AppendLine("Si tienes dudas sobre tu salud respiratoria, te sugiero hacerte un chequeo para asegurarte.");
+                        break;
+
+                    case 2: // Pregunta 3: ¿Vives cerca de avenidas o calles muy transitadas?
+                        if (respuesta == 0) // Sí
+                            recomendaciones.AppendLine("Vivir cerca de calles transitadas puede afectar la calidad del aire. Usa un purificador de aire para mejorar tu salud.");
+                        else if (respuesta == 1) // No
+                            recomendaciones.AppendLine("¡Perfecto! Vivir en una zona sin mucha contaminación es excelente para tu salud respiratoria.");
+                        else if (respuesta == 2) // No estoy seguro
+                            recomendaciones.AppendLine("Es recomendable investigar los niveles de contaminación cerca de tu área para tomar precauciones.");
+                        break;
+
+                    case 3: // Pregunta 4: ¿Tienes plantas en casa?
+                        if (respuesta == 0) // Sí
+                            recomendaciones.AppendLine("Las plantas ayudan a purificar el aire. ¡Continúa con ellas!");
+                        else if (respuesta == 1) // No
+                            recomendaciones.AppendLine("Si no tienes plantas en casa, considera agregar algunas. Ayudan a mejorar la calidad del aire.");
+                        else if (respuesta == 2) // No estoy seguro
+                            recomendaciones.AppendLine("Las plantas son una excelente adición a tu hogar, ya que ayudan a purificar el aire.");
+                        break;
+
+                    case 4: // Pregunta 5: ¿Usas purificadores de aire?
+                        if (respuesta == 0) // Sí
+                            recomendaciones.AppendLine("¡Perfecto! Los purificadores de aire son muy efectivos para mantener el aire limpio en tu hogar.");
+                        else if (respuesta == 1) // No
+                            recomendaciones.AppendLine("Si no usas purificadores de aire, podrías considerar agregar uno, especialmente si vives en una zona con contaminación.");
+                        else if (respuesta == 2) // No estoy seguro
+                            recomendaciones.AppendLine("Un purificador de aire podría ser útil si tienes problemas respiratorios o vives en una zona con mucha polución.");
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            // Mostrar todas las recomendaciones generadas
+            lblRecomendacionesUsuario.Text = recomendaciones.ToString();
+            lblDialogo.Visible = true;
+            lblDialogo.Text = "Gracias por tus respuestas.\n\n Aquí tienes recomendaciones personalizadas para mejorar tu salud. \n\n ¡Recuerda que pequeñas acciones cuentan para respirar mejor!";
+
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -394,6 +466,11 @@ namespace ProyectoFinalFP
         }
 
         private void rbdRes3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbRutina_Enter(object sender, EventArgs e)
         {
 
         }

@@ -20,7 +20,6 @@ namespace ProyectoFinalFP
             picCambiosAire.BringToFront();
             picEstudiAire.BringToFront();
             panel1.Location = new Point(200,450);
-
             //this.Load += (s, e) => MostrarGif(); // ✅ Llamar a MostrarGif() en Load
         }
 
